@@ -1,0 +1,122 @@
+@font-face {
+	font-family: "Symbola";
+	src: url(../fonts/Symbola_hint.eot);
+	src: local("&#x263A;"),
+		url(../fonts/Symbola_hint.woff2) format(woff2),
+		url(../fonts/Symbola_hint.woff) format(woff);
+}
+th.dgrid-column-Programs table {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+th.dgrid-column-Programs td {
+	margin: 0;
+	padding: 0;
+	white-space:nowrap;
+	text-transform:lowercase;
+	width:16.6666666667%
+}
+td.dgrid-column-Programs {
+	white-space:nowrap;
+}
+h1 {
+	margin-top: 0;
+}
+td.dgrid-column-Programs > div {
+	padding: 6px;
+	box-sizing: border-box;
+	border-right: 3px solid white;
+	display:inline-block;
+	vertical-align:top;
+	white-space:normal;
+	background: rgba(224,224,224,0.75);
+	border-radius: 6px;
+	font-size: 13px;
+	cursor: pointer;
+	position: relative;
+	overflow:hidden;
+}
+.ProgramText {
+	position: relative;
+	overflow:hidden;
+	height: 2.4em;
+	text-overflow: ellipsis;
+}
+.subTitle {
+	white-space: nowrap;
+	height: 1.2em;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+td.dgrid-column-Programs > div:hover {
+	background: rgba(224,224,224,1);
+}
+td.dgrid-column-Programs > div.series {
+}
+td.dgrid-column-Programs > div.sports {
+	background: rgba(204,255,204,0.75);
+}
+td.dgrid-column-Programs > div.sports:hover {
+	background: rgba(204,255,204,1);
+}
+td.dgrid-column-Programs > div.movie {
+	background: rgba(204,204,255,0.75);
+}
+td.dgrid-column-Programs > div.movie:hover {
+	background: rgba(204,204,255,1);
+}
+td.dgrid-column-Programs > div.tvshow {
+}
+.dgrid-column-set-0 {
+	width: 100px;
+}
+.nihilo .dgrid-row:hover {
+	background-color: inherit;
+}
+.ChanNum{
+	display:block;
+	text-align: center;
+	font-size: 200%;
+}
+.CallSign {
+	display:block;
+	text-align: center;
+}
+.icons {
+	font-family: Symbola;
+	font-size: 18px;
+	letter-spacing: 6px;
+	height: 1.2em;
+}
+.dgrid-header .dgrid-cell td {
+	cursor: pointer;
+}
+.ProgramDetail {
+	background: white;
+	width: 350px;
+}
+.dijitTooltipContainer {
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+}
+.ProgramDetail h2,
+.ProgramDetail h3 {
+	margin: 0;
+}
+.ProgramDetail *:empty {
+	display: none;
+}
+.ProgramDetail table {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+
+.ProgramDetail th {
+	text-align: left;
+	padding: 0 10px 0 0;
+}
+.ProgramDetail td {
+	padding:0;
+}

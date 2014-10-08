@@ -1,6 +1,11 @@
 require([
-	"windypalms/Listing",
+	"dojo/parser",
+	"windypalms/Home",
 	"dojo/domReady!"
-],function(Listing) {
-	document.body.appendChild((new Listing()).domNode);
+],function(parser) {
+	//document.body.appendChild((new Listing()).domNode);
+	var node=document.getElementById('home');
+	if(node){
+		parser.instantiate([node]);
+	}
 });

@@ -3,8 +3,9 @@
  */
 define([
 	"dojo/_base/declare",
-	"dijit/_WidgetBase",
+	"dijit/layout/LayoutContainer",
 	"dijit/_TemplatedMixin",
+	"dijit/_WidgetsInTemplateMixin",
 	"dojo/text!windypalms/Listing.html",
 
 	"dojo/_base/lang",
@@ -25,14 +26,14 @@ define([
 	"dgrid/Keyboard",
 	"windypalms/ProgramDetail"
 ],function(
-	declare,_WidgetBase,_TemplatedMixin,template,
+	declare,LayoutContainer,_TemplatedMixin,_WidgetsInTemplateMixin,template,
 	lang,locale,when,on,registry,popup,TooltipDialog,put,Program,
 	JsonRest,Memory,Cache,Grid,ColumnSet,Keyboard,ProgramDetail
 ) {
 	var GridClass=declare([Grid,ColumnSet,Keyboard]);
 
 	return declare([
-			_WidgetBase,_TemplatedMixin
+		LayoutContainer,_TemplatedMixin,_WidgetsInTemplateMixin
 	], /** @lends windypalms/Listing */ {
 
 		templateString:template,
@@ -157,7 +158,7 @@ define([
 				idProperty:"StartTime"
 			}));
 
-			this.domNode.appendChild(this.grid.domNode);
+			this.contentNode.set('content',this.grid);
 
 			this.grid.on(".dgrid-content .dgrid-cell .Program:click",lang.hitch(this,this.onClickProgram));
 

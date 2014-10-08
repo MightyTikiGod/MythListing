@@ -74,7 +74,7 @@ define([
 		"Martial arts":"",
 		"Medical":"🏥",
 		"Military":"🎖",
-		"Miniseries":"",
+		"Miniseries":"∈",
 		"Mixed martial arts":"",
 		"Motorcycle":"🏍",
 		"Motorsports":"🏎",

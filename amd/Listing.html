@@ -1,4 +1,27 @@
 <div class="Listing"
-	><div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="height: 40px;">Navigation goes here</div
+	><div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="height: 40px;">
+		<div class="time-controls">
+			<a href="#" data-dojo-attach-event="click:onBack3Hours">⏪</a>
+			<input type="text" data-dojo-type="dijit/form/TimeTextBox" data-dojo-attach-point="timeControlNode" data-dojo-props="
+			constraints:{
+				timePattern: 'hh:mm a',
+				clickableIncrement: 'T00:30:00',
+				visibleIncrement: 'T01:00:00',
+				visibleRange: 'T01:00:00'
+			}
+			" data-dojo-attach-event="onChange:onChangeTime">
+			<a href="#" data-dojo-attach-event="click:onForward3Hours">⏩</a>
+		</div>
+		<div class="date-controls">
+			<a href="#" data-dojo-attach-event="click:onBack1Day">⏪</a>
+			<input type="text" data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="dateControlNode" data-dojo-props="
+				constraints:{
+					selector:'date',
+					datePattern:'EEEE, MMMM d, yyyy'
+				}
+			" data-dojo-attach-event="onChange:onChangeDate">
+			<a href="#" data-dojo-attach-event="click:onForward1Day">⏩</a>
+		</div>
+	</div
 	><div class="gridContainer" data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="contentNode" data-dojo-props="region:'center'"></div
 ></div>

@@ -24,7 +24,10 @@ define([
 	"dgrid/Grid",
 	"dgrid/ColumnSet",
 	"dgrid/Keyboard",
-	"windypalms/ProgramDetail"
+	"windypalms/ProgramDetail",
+
+	"dijit/form/TimeTextBox",
+	"dijit/form/DateTextBox"
 ],function(
 	declare,LayoutContainer,_TemplatedMixin,_WidgetsInTemplateMixin,template,
 	lang,locale,when,on,registry,popup,TooltipDialog,put,Program,
@@ -42,6 +45,8 @@ define([
 
 		_setStartTimeAttr:function(start){
 			this._set('StartTime',new Date(start));
+			this.timeControlNode.set('value',new Date(start));
+			this.dateControlNode.set('value',new Date(start));
 			var end=new Date(start);
 			end.setHours(end.getHours()+3);
 			this.set('EndTime',end);
@@ -99,6 +104,49 @@ define([
 			this.ttg.set('content',this.detailPopup);
 		},
 
+		onBack3Hours:function(evt){
+			evt.preventDefault();
+			var s=new Date(this.get('StartTime'));
+			s.setHours(s.getHours()-3)
+			this.set('StartTime',s);
+			this.reRender();
+		},
+		onForward3Hours:function(evt){
+			evt.preventDefault();
+			var s=new Date(this.get('StartTime'));
+			s.setHours(s.getHours()+3)
+			this.set('StartTime',s);
+			this.reRender();
+		},
+		onBack1Day:function(evt){
+			evt.preventDefault();
+			var s=new Date(this.get('StartTime'));
+			s.setDate(s.getDate()-1)
+			this.set('StartTime',s);
+			this.reRender();
+		},
+		onForward1Day:function(evt){
+			evt.preventDefault();
+			var s=new Date(this.get('StartTime'));
+			s.setDate(s.getDate()+1)
+			this.set('StartTime',s);
+			this.reRender();
+		},
+		onChangeTime:function(d){
+			var s=new Date(this.get('StartTime'));
+			s.setHours(d.getHours());
+			s.setMinutes(d.getMinutes());
+			this.set('StartTime',s);
+			this.reRender();
+		},
+		onChangeDate:function(d){
+			var s=new Date(this.get('StartTime'));
+			s.setDate(d.getDate());
+			s.setMonth(d.getMonth());
+			this.set('StartTime',s);
+			this.reRender();
+		},
+
 		onClickProgram:function(evt){
 			evt.stopPropagation();
 			var row = this.grid.row(evt);
@@ -124,6 +172,14 @@ define([
 			start.setMilliseconds(0);
 			start.setMinutes((start.getMinutes()<30)?0:30);
 			this.set('StartTime',start);
+			var d=new Date(start);
+			d.setHours(0);
+			d.setMinutes(0);
+			d.setDate(d.getDate()-1);
+			var e=new Date(d);
+			e.setDate(e.getDate()+15);
+			this.dateControlNode.constraints.min=d;
+			this.dateControlNode.constraints.max=e;
 
 			this.grid=new GridClass({
 				columnSets:[
